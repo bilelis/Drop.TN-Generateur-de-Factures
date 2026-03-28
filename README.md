@@ -36,5 +36,14 @@ Générateur de factures professionnel et local pour la marque **Drop.TN**. Cré
 - **Design** : Tailwind CSS v4, Lucide Icons
 - **PDF** : jsPDF, autoTable
 
+## 📦 Déploiement
+
+Cette application est optimisée pour **Vercel** :
+
+1. Connectez votre dépôt GitHub à [Vercel](https://vercel.com).
+2. Vercel détectera automatiquement la configuration **Vite**.
+3. Définissez le répertoire de sortie sur `dist` (par défaut).
+4. Cliquez sur **Deploy**.
+
 ---
 *Développé pour l'écosystème e-commerce tunisien.*
