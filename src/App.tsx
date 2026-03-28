@@ -84,9 +84,9 @@ export default function App() {
   const totalTTC = subtotalHT + totalVAT + (order.shippingFee || 0);
 
   const gouvernorats = [
-    'Ariana', 'Béja', 'Ben Arous', 'Bizerte', 'Gabès', 'Gafsa', 'Jendouba', 
-    'Kairouan', 'Kasserine', 'Kebili', 'Kef', 'Mahdia', 'Manouba', 'Medenine', 
-    'Monastir', 'Nabeul', 'Sfax', 'Sidi Bouzid', 'Siliana', 'Sousse', 
+    'Ariana', 'Béja', 'Ben Arous', 'Bizerte', 'Gabès', 'Gafsa', 'Jendouba',
+    'Kairouan', 'Kasserine', 'Kebili', 'Kef', 'Mahdia', 'Manouba', 'Medenine',
+    'Monastir', 'Nabeul', 'Sfax', 'Sidi Bouzid', 'Siliana', 'Sousse',
     'Tataouine', 'Tozeur', 'Tunis', 'Zaghouan'
   ];
 
@@ -162,7 +162,7 @@ export default function App() {
     doc.setFontSize(18);
     doc.setTextColor(0);
     doc.text('FACTURE DROP.TN', 15, 65);
-    
+
     doc.setFontSize(10);
     doc.text(`N° de commande: ${order.number}`, 15, 75);
     doc.text(`Date: ${format(new Date(order.date), 'dd/MM/yyyy')}`, 15, 80);
@@ -212,13 +212,13 @@ export default function App() {
     doc.setTextColor(0);
     doc.text(`Total HT:`, totalsX - 40, finalY + 15);
     doc.text(`${subtotalHT.toFixed(2)} TND`, totalsX, finalY + 15, { align: 'right' });
-    
+
     doc.text(`Total TVA:`, totalsX - 40, finalY + 22);
     doc.text(`${totalVAT.toFixed(2)} TND`, totalsX, finalY + 22, { align: 'right' });
 
     doc.text(`Livraison:`, totalsX - 40, finalY + 29);
     doc.text(`${order.shippingFee.toFixed(2)} TND`, totalsX, finalY + 29, { align: 'right' });
-    
+
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text(`TOTAL À PAYER:`, totalsX - 40, finalY + 39);
@@ -253,7 +253,7 @@ export default function App() {
             </div>
             <h1 className="text-xl font-bold tracking-tight text-white">Drop<span className="text-neutral-500">.TN</span></h1>
           </div>
-          <button 
+          <button
             onClick={generatePDF}
             className="bg-white hover:bg-neutral-200 text-black px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-all shadow-sm hover:shadow-md active:scale-95"
           >
@@ -265,10 +265,10 @@ export default function App() {
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
+
           {/* Form Side */}
           <div className="lg:col-span-7 space-y-8">
-            
+
             {/* Company Section */}
             <section className="bg-neutral-900 rounded-2xl shadow-sm border border-neutral-800 overflow-hidden">
               <div className="p-6 border-b border-neutral-800 flex items-center justify-between bg-neutral-900/50">
@@ -288,9 +288,9 @@ export default function App() {
                         <ImageIcon className="w-8 h-8 text-neutral-700" />
                       )}
                     </div>
-                    <input 
-                      type="file" 
-                      accept="image/*" 
+                    <input
+                      type="file"
+                      accept="image/*"
                       onChange={handleLogoUpload}
                       className="text-sm text-neutral-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-neutral-800 file:text-neutral-200 hover:file:bg-neutral-700 cursor-pointer"
                     />
@@ -298,55 +298,55 @@ export default function App() {
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Nom de la marque</label>
-                  <input 
-                    type="text" 
-                    value={company.name} 
-                    onChange={e => setCompany({...company, name: e.target.value})}
+                  <input
+                    type="text"
+                    value={company.name}
+                    onChange={e => setCompany({ ...company, name: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Adresse (Tunisie)</label>
-                  <input 
-                    type="text" 
-                    value={company.address} 
-                    onChange={e => setCompany({...company, address: e.target.value})}
+                  <input
+                    type="text"
+                    value={company.address}
+                    onChange={e => setCompany({ ...company, address: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Code Postal</label>
-                  <input 
-                    type="text" 
-                    value={company.zipCode} 
-                    onChange={e => setCompany({...company, zipCode: e.target.value})}
+                  <input
+                    type="text"
+                    value={company.zipCode}
+                    onChange={e => setCompany({ ...company, zipCode: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Ville</label>
-                  <input 
-                    type="text" 
-                    value={company.city} 
-                    onChange={e => setCompany({...company, city: e.target.value})}
+                  <input
+                    type="text"
+                    value={company.city}
+                    onChange={e => setCompany({ ...company, city: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Matricule Fiscal</label>
-                  <input 
-                    type="text" 
-                    value={company.siret} 
-                    onChange={e => setCompany({...company, siret: e.target.value})}
+                  <input
+                    type="text"
+                    value={company.siret}
+                    onChange={e => setCompany({ ...company, siret: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Email Support</label>
-                  <input 
-                    type="email" 
-                    value={company.email} 
-                    onChange={e => setCompany({...company, email: e.target.value})}
+                  <input
+                    type="email"
+                    value={company.email}
+                    onChange={e => setCompany({ ...company, email: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
@@ -365,31 +365,31 @@ export default function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Prénom</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Ahmed"
-                      value={client.firstName} 
-                      onChange={e => setClient({...client, firstName: e.target.value})}
+                      value={client.firstName}
+                      onChange={e => setClient({ ...client, firstName: e.target.value })}
                       className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Nom</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Ben Ali"
-                      value={client.lastName} 
-                      onChange={e => setClient({...client, lastName: e.target.value})}
+                      value={client.lastName}
+                      onChange={e => setClient({ ...client, lastName: e.target.value })}
                       className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                     />
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Numéro de téléphone</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="+216 XX XXX XXX"
-                      value={client.phone} 
-                      onChange={e => setClient({...client, phone: e.target.value})}
+                      value={client.phone}
+                      onChange={e => setClient({ ...client, phone: e.target.value })}
                       className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                     />
                   </div>
@@ -400,19 +400,19 @@ export default function App() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="md:col-span-2">
                       <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Adresse complète</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         placeholder="Rue, Numéro, Appartement..."
-                        value={client.address} 
-                        onChange={e => setClient({...client, address: e.target.value})}
+                        value={client.address}
+                        onChange={e => setClient({ ...client, address: e.target.value })}
                         className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Gouvernorat</label>
-                      <select 
-                        value={client.gouvernorat} 
-                        onChange={e => setClient({...client, gouvernorat: e.target.value})}
+                      <select
+                        value={client.gouvernorat}
+                        onChange={e => setClient({ ...client, gouvernorat: e.target.value })}
                         className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       >
                         <option value="">Choisir...</option>
@@ -421,19 +421,19 @@ export default function App() {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Ville</label>
-                      <input 
-                        type="text" 
-                        value={client.city} 
-                        onChange={e => setClient({...client, city: e.target.value})}
+                      <input
+                        type="text"
+                        value={client.city}
+                        onChange={e => setClient({ ...client, city: e.target.value })}
                         className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Code Postal</label>
-                      <input 
-                        type="text" 
-                        value={client.zipCode} 
-                        onChange={e => setClient({...client, zipCode: e.target.value})}
+                      <input
+                        type="text"
+                        value={client.zipCode}
+                        onChange={e => setClient({ ...client, zipCode: e.target.value })}
                         className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       />
                     </div>
@@ -453,27 +453,27 @@ export default function App() {
               <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">N° Commande</label>
-                  <input 
-                    type="text" 
-                    value={order.number} 
-                    onChange={e => setOrder({...order, number: e.target.value})}
+                  <input
+                    type="text"
+                    value={order.number}
+                    onChange={e => setOrder({ ...order, number: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Date</label>
-                  <input 
-                    type="date" 
-                    value={order.date} 
-                    onChange={e => setOrder({...order, date: e.target.value})}
+                  <input
+                    type="date"
+                    value={order.date}
+                    onChange={e => setOrder({ ...order, date: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Mode de paiement</label>
-                  <select 
-                    value={order.paymentMethod} 
-                    onChange={e => setOrder({...order, paymentMethod: e.target.value})}
+                  <select
+                    value={order.paymentMethod}
+                    onChange={e => setOrder({ ...order, paymentMethod: e.target.value })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   >
                     <option>Cash à la livraison</option>
@@ -483,10 +483,10 @@ export default function App() {
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Frais de livraison (TND)</label>
-                  <input 
-                    type="number" 
-                    value={order.shippingFee} 
-                    onChange={e => setOrder({...order, shippingFee: parseFloat(e.target.value) || 0})}
+                  <input
+                    type="number"
+                    value={order.shippingFee}
+                    onChange={e => setOrder({ ...order, shippingFee: parseFloat(e.target.value) || 0 })}
                     className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent outline-none transition-all text-white"
                   />
                 </div>
@@ -500,7 +500,7 @@ export default function App() {
                   <ShoppingCart className="w-5 h-5 text-neutral-400" />
                   <h2 className="font-semibold text-white">Articles Drop.TN</h2>
                 </div>
-                <button 
+                <button
                   onClick={addProduct}
                   className="text-white hover:text-neutral-300 font-bold text-sm flex items-center gap-1 px-3 py-1 rounded-lg hover:bg-neutral-800 transition-colors"
                 >
@@ -513,8 +513,8 @@ export default function App() {
                   <div key={product.id} className="group relative grid grid-cols-12 gap-3 p-4 bg-black rounded-xl border border-neutral-800 transition-all hover:border-neutral-600">
                     <div className="col-span-12 md:col-span-5">
                       <label className="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Produit</label>
-                      <select 
-                        value={product.name} 
+                      <select
+                        value={product.name}
                         onChange={e => selectFromCatalog(product.id, e.target.value)}
                         className="w-full px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       >
@@ -525,10 +525,10 @@ export default function App() {
                         <option value="custom">Autre (Saisie manuelle)</option>
                       </select>
                       {product.name === 'custom' || (!catalog.find(c => c.name === product.name) && product.name !== '') ? (
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="Nom du produit personnalisé"
-                          value={product.name === 'custom' ? '' : product.name} 
+                          value={product.name === 'custom' ? '' : product.name}
                           onChange={e => updateProduct(product.id, 'name', e.target.value)}
                           className="w-full mt-2 px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                         />
@@ -536,28 +536,28 @@ export default function App() {
                     </div>
                     <div className="col-span-3 md:col-span-2">
                       <label className="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Qté</label>
-                      <input 
-                        type="number" 
+                      <input
+                        type="number"
                         min="1"
-                        value={product.quantity} 
+                        value={product.quantity}
                         onChange={e => updateProduct(product.id, 'quantity', parseInt(e.target.value) || 0)}
                         className="w-full px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       />
                     </div>
                     <div className="col-span-5 md:col-span-2">
                       <label className="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Prix HT (TND)</label>
-                      <input 
-                        type="number" 
+                      <input
+                        type="number"
                         step="0.01"
-                        value={product.unitPrice} 
+                        value={product.unitPrice}
                         onChange={e => updateProduct(product.id, 'unitPrice', parseFloat(e.target.value) || 0)}
                         className="w-full px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       />
                     </div>
                     <div className="col-span-3 md:col-span-2">
                       <label className="block text-[10px] font-bold text-neutral-500 uppercase mb-1">TVA %</label>
-                      <select 
-                        value={product.vatRate} 
+                      <select
+                        value={product.vatRate}
                         onChange={e => updateProduct(product.id, 'vatRate', parseFloat(e.target.value))}
                         className="w-full px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none text-white"
                       >
@@ -568,7 +568,7 @@ export default function App() {
                       </select>
                     </div>
                     <div className="col-span-1 flex items-end justify-center pb-1.5">
-                      <button 
+                      <button
                         onClick={() => removeProduct(product.id)}
                         className="text-neutral-600 hover:text-red-500 transition-colors p-1"
                       >
@@ -586,10 +586,10 @@ export default function App() {
                 <h2 className="font-semibold text-white">Notes de Livraison</h2>
               </div>
               <div className="p-6">
-                <textarea 
+                <textarea
                   rows={3}
                   value={order.notes}
-                  onChange={e => setOrder({...order, notes: e.target.value})}
+                  onChange={e => setOrder({ ...order, notes: e.target.value })}
                   placeholder="Instructions pour le livreur..."
                   className="w-full px-4 py-2 bg-black border border-neutral-800 rounded-lg focus:ring-2 focus:ring-white outline-none transition-all resize-none text-white"
                 />
@@ -601,7 +601,7 @@ export default function App() {
           <div className="lg:col-span-5">
             <div className="sticky top-24 space-y-6">
               <h2 className="text-sm font-bold text-neutral-500 uppercase tracking-widest px-2">Aperçu Facture Drop.TN</h2>
-              
+
               <div className="bg-white rounded-xl shadow-2xl border border-neutral-800 overflow-hidden aspect-[1/1.414] flex flex-col p-8 text-[10px] leading-relaxed text-black">
                 {/* PDF Preview Mockup */}
                 <div className="flex justify-between items-start mb-8">
@@ -660,7 +660,7 @@ export default function App() {
                   <div className="flex justify-end gap-8">
                     <div className="space-y-1 text-right text-neutral-500">
                       <p>Sous-total HT</p>
-                      <p>TVA ({products[0]?.vatRate || 19}%)</p>
+                      <p>TVA Total</p>
                       <p>Livraison</p>
                       <p className="text-sm font-bold text-black pt-2">TOTAL À PAYER</p>
                     </div>
@@ -683,7 +683,7 @@ export default function App() {
                 <div className="relative z-10">
                   <h3 className="text-lg font-bold mb-2">Prêt pour l'envoi ?</h3>
                   <p className="text-neutral-600 text-sm mb-4">Générez le PDF pour l'inclure dans le colis ou l'envoyer par WhatsApp.</p>
-                  <button 
+                  <button
                     onClick={generatePDF}
                     className="w-full bg-black text-white font-bold py-3 rounded-xl hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2"
                   >
